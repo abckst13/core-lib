@@ -1,10 +1,20 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'org.springframework.boot:spring-boot-gradle-plugin'
+		classpath 'io.spring.gradle:dependency-management-plugin'
+	}
+}
 plugins {
-	id 'org.springframework.boot'
-	id 'io.spring.dependency-management'
 	id 'java-library'
 	id 'eclipse-wtp'
 	id 'java'
 }
+
+apply plugin: "org.springframework.boot"
+apply plugin: "io.spring.dependency-management"
 
 eclipse {
 	project {
