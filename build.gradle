@@ -3,10 +3,11 @@ buildscript {
 		mavenCentral()
 	}
 	dependencies {
-		classpath 'org.springframework.boot:spring-boot-gradle-plugin'
-		classpath 'io.spring.gradle:dependency-management-plugin'
+		classpath('org.springframework.boot:spring-boot-gradle-plugin:2.7.7')
+		classpath('io.spring.gradle:dependency-management-plugin:1.0.15.RELEASE')
 	}
 }
+
 plugins {
 	id 'java-library'
 	id 'eclipse-wtp'
