@@ -147,7 +147,7 @@ public class CmnConst {
 	public static final String AES_ENCRYPT_KEY = "MDEyMzQ1Njc4OUFCQ0RFRg==";  //암호화 키(encrypt key)
 
 	public static final String PROFILE_KEY = "spring.config.activate.on-profile";
-	public static final String PROFILE_DEFAULT = "dev";
+	public static final String PROFILE_DEFAULT = "local";
 	public static final String PROFILE_DEV = "dev";
 	public static final String PROFILE_TEST = "test";
 	public static final String PROFILE_STAG = "stag";
