@@ -13,7 +13,7 @@ public class CmnConst {
 	public static final String REQUEST_DATA_EXCEPTION = "REQUEST_DATA_EXCEPTION";
 
 	/* Project Gubun */
-	public static final String APP_NAME_FRONT = "front";
+	public static final String APP_NAME_BO = "bo";
 
 	/* Encode type */
 	public static final String DEFAULT_CHARSET = "UTF-8";
@@ -152,7 +152,6 @@ public class CmnConst {
 	public static final String PROFILE_TEST = "test";
 	public static final String PROFILE_STAG = "stag";
 	public static final String PROFILE_PROD = "prod";
-	public static final String PROFILE_DSRE = "dsre";
 
 	public static final String JWT_TYP = "JWT";
 	public static final String JWT_ALG = "HS256";

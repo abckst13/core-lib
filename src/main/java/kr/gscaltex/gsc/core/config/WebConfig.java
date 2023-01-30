@@ -51,7 +51,7 @@ public class WebConfig implements WebMvcConfigurer {
 	}
 
 	@Bean("cmnInterceptor")
-	@ConditionalOnProperty(name = "spring.application.name", havingValue = CmnConst.APP_NAME_FRONT)
+	@ConditionalOnProperty(name = "spring.application.name", havingValue = CmnConst.APP_NAME_BO)
 	public FrontInterceptor frontInterceptor() {
 		return new FrontInterceptor();
 	}
