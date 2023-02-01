@@ -29,6 +29,6 @@ public interface ConditionalPostHandlable {
 	 * 조건들 정의 - 현재는 미션대상API애 대한 처리만 필요
 	 */
 	enum Condition {
-		MISSION_API
+//		MISSION_API
 	}
 }

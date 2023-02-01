@@ -155,16 +155,16 @@ dependencies {
 	implementation 'commons-collections:commons-collections:3.2.2'
 
 	//Spring Boot Starter Integration
-	implementation 'org.springframework.boot:spring-boot-starter-integration'
+	//implementation 'org.springframework.boot:spring-boot-starter-integration'
 
 	//Spring Integration Core
-	implementation 'org.springframework.integration:spring-integration-core'
+	//implementation 'org.springframework.integration:spring-integration-core'
 
 	//Spring Integration IP
-	implementation 'org.springframework.integration:spring-integration-ip'
+	//implementation 'org.springframework.integration:spring-integration-ip'
 
 	//Spring Integration HTTP
-	implementation 'org.springframework.integration:spring-integration-http'
+	//implementation 'org.springframework.integration:spring-integration-http'
 
 	//Spring JDBC
 	implementation 'org.springframework:spring-jdbc'

@@ -55,6 +55,7 @@ public class SwaggerConfig {
 		log.debug("spring.config.activate.on-profile: {}", profile);
 		log.debug("profile : {}", ConfigUtil.getProfile());
 		log.debug("swaggerHost : {}", swaggerHost);
+		log.debug(">>>>>>>>>>>>{}", ConfigUtil.getString("pep.host.ext"));
 		if(!CmnConst.PROFILE_DEFAULT.equals(profile)) { //개발서버는 서버정보가 달라 yml 파일에 강제 설정한다. (TODO : 향후 환경에 맞게 수정 필요)
 			List<String> schemaList = new ArrayList<String>();
 			schemaList.add("http");
