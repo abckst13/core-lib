@@ -11,29 +11,18 @@ import lombok.NoArgsConstructor;
 @ApiModel(value = "통합플랫폼 REST API 응답 Dto", description = "통합플랫폼 REST API 응답 Dto")
 @NoArgsConstructor
 public class ResResultDto<T> {
-	@Schema(description = "결과갯수")
-	private int resultCnt;
-	@Schema(description = "성공여부")
-	private boolean success = false;
-	@Schema(description = "결과데이터")
-	private T result;
-	@Schema(description = "미션데이터")
-	private ResMissionResultDto missionResult;
+	@Schema(description = "결과코드")
+	private int code;
 	@Schema(description = "결과메시지")
-	private ResCmnMsgDto message = new ResCmnMsgDto();
+	private String msg = "success";
+//	@Schema(description = "결과메시지")
+//	private ResCmnMsgDto message = new ResCmnMsgDto();
+	@Schema(description = "결과데이터")
+	private T data;
 
 	public ResResultDto(T dto) {
-		this.result = dto;
-		this.resultCnt = dto == null ? 0 : 1;
-		this.message = BeanUtil.convert(MsgUtil.getMsgBox(message.getMsgC()), ResCmnMsgDto.class);
-		this.success = true;
+		this.data = dto;
+//		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(msg.getMsgC()), ResCmnMsgDto.class);
 	}
 
-	public ResResultDto(T dto, ResMissionResultDto missionResult) {
-		this.result = dto;
-		this.missionResult = missionResult;
-		this.resultCnt = dto == null ? 0 : 1;
-		this.message = BeanUtil.convert(MsgUtil.getMsgBox(message.getMsgC()), ResCmnMsgDto.class);
-		this.success = true;
-	}
 }

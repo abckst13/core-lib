@@ -1,7 +1,5 @@
 package kr.aipeppers.pep.core.domain;
 
-import kr.aipeppers.pep.core.util.BeanUtil;
-import kr.aipeppers.pep.core.util.MsgUtil;
 import io.swagger.annotations.ApiModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -13,26 +11,14 @@ import lombok.NoArgsConstructor;
 @ApiModel
 @NoArgsConstructor
 public class ResIntDto {
-	@Schema(description = "결과갯수")
-	private int resultCnt;
-	@Schema(description = "성공여부")
-	private boolean success = false;
-	@Schema(description = "미션데이터")
-	private ResMissionResultDto missionResult;
+	@Schema(description = "결과코드")
+	private int code;
 	@Schema(description = "결과메시지")
-	private ResCmnMsgDto message = new ResCmnMsgDto();
+	private String msg = "success";
 
 	public ResIntDto(int resultCnt) {
-		this.resultCnt = resultCnt;
-		this.message = BeanUtil.convert(MsgUtil.getMsgBox(message.getMsgC()), ResCmnMsgDto.class);
-		this.success = true;
-	}
-
-	public ResIntDto(int resultCnt, ResMissionResultDto missionResult) {
-		this.resultCnt = resultCnt;
-		this.missionResult = missionResult;
-		this.message = BeanUtil.convert(MsgUtil.getMsgBox(message.getMsgC()), ResCmnMsgDto.class);
-		this.success = true;
+		this.code = resultCnt > 0 ? 200 : 500;
+		this.msg = "success";
 	}
 
 }
