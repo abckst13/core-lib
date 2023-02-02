@@ -18,7 +18,7 @@ public class ResIntDto {
 
 	public ResIntDto(int resultCnt) {
 		this.code = resultCnt > 0 ? 200 : 500;
-		this.msg = "success";
+		this.msg = resultCnt > 0 ? "success" : "failed";
 	}
 
 }
