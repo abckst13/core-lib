@@ -23,6 +23,7 @@ public class ResResultDto<T> {
 	public ResResultDto(T dto) {
 		this.data = dto;
 //		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(msg.getMsgC()), ResCmnMsgDto.class);
+		this.code = 200;
 	}
 
 }

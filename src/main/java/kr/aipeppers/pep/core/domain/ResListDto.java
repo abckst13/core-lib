@@ -13,34 +13,34 @@ import lombok.NoArgsConstructor;
 @ApiModel
 @NoArgsConstructor
 public class ResListDto<T> {
+	@Schema(description = "결과코드")
+	private int code;
+	@Schema(description = "결과메시지")
+	private String msg = "success";
+//	@Schema(description = "결과메시지")
+//	private ResCmnMsgDto message = new ResCmnMsgDto();
 	@Schema(description = "결과갯수")
-	private int resultCnt;
-	@Schema(description = "성공여부")
-	private boolean success = false;
+	private int count;
 	@Schema(description = "결과리스트")
-	private List<T> list;
+	private List<T> data;
 	@Schema(description = "결과페이징정보")
 	private ResPageDto paginate;
-	@Schema(description = "미션데이터")
-	private ResMissionResultDto missionResult;
 	@Schema(description = "결과메시지")
 	private ResCmnMsgDto message = new ResCmnMsgDto();
 
 	public ResListDto(List<T> list) {
-		this.resultCnt = list.size();
-		this.list = list;
-		this.message = BeanUtil.convert(MsgUtil.getMsgBox(message.getMsgC()), ResCmnMsgDto.class);
-		this.success = true;
+		this.count = list.size();
+		this.data = list;
+//		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(message.getMsgC()), ResCmnMsgDto.class);
 //		this.message.setResultCnt(this.resultCnt);
 	}
 
 	public ResListDto(List<T> list, ResPageDto paginateDto) {
 //		this.resultCnt = paginateDto.getTotalRecords();
-		this.resultCnt = list.size();
-		this.list = list;
+		this.count = list.size();
+		this.data = list;
 		this.paginate = paginateDto;
-		this.message = BeanUtil.convert(MsgUtil.getMsgBox(message.getMsgC()), ResCmnMsgDto.class);
-		this.success = true;
+//		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(message.getMsgC()), ResCmnMsgDto.class);
 //		this.message.setResultCnt(this.resultCnt);
 	}
 }
