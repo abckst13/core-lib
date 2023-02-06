@@ -25,8 +25,8 @@ public class ResListDto<T> {
 	private List<T> data;
 	@Schema(description = "결과페이징정보")
 	private ResPageDto paginate;
-	@Schema(description = "결과메시지")
-	private ResCmnMsgDto message = new ResCmnMsgDto();
+//	@Schema(description = "결과메시지")
+//	private ResCmnMsgDto message = new ResCmnMsgDto();
 
 	public ResListDto(List<T> list) {
 		this.count = list.size();
