@@ -55,7 +55,15 @@ public class DefaultInterceptor implements HandlerInterceptor {
 					!SpringUtil.getRequestUri().startsWith("/sample") &&
 					!SpringUtil.getRequestUri().startsWith("/test") &&
 					!SpringUtil.getRequestUri().startsWith("/mypage") &&
-					!SpringUtil.getRequestUri().startsWith("/restapi")) {
+					!SpringUtil.getRequestUri().startsWith("/restapi")
+
+					// 아래부터 임시로 추가한 부분 주석 풀고 사용 로그인 부분 작업 완료 후 삭제
+//					&& !SpringUtil.getRequestUri().startsWith("/category")
+//					&& !SpringUtil.getRequestUri().startsWith("/mypage")
+//					&& !SpringUtil.getRequestUri().startsWith("/customer")
+					//여기까지
+
+					) {
 					log.debug("[URL INVALID] 허용된 url이 아닙니다. restapi를 확인해주세요. - {} : {}", apiOperation.value(), SpringUtil.getRequestUri());
 					throw new BizException(CmnConst.ResCd.RES_CD_400); //Bad Request
 				}
