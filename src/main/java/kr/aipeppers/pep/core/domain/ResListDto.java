@@ -37,7 +37,7 @@ public class ResListDto<T> {
 
 	public ResListDto(List<T> list, ResPageDto paginateDto) {
 //		this.resultCnt = paginateDto.getTotalRecords();
-		this.count = list.size();
+		this.count = paginateDto.getTotalRecords();
 		this.data = list;
 		this.paginate = paginateDto;
 //		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(message.getMsgC()), ResCmnMsgDto.class);
