@@ -1,7 +1,5 @@
 package kr.aipeppers.pep.core.domain;
 
-import kr.aipeppers.pep.core.util.BeanUtil;
-import kr.aipeppers.pep.core.util.MsgUtil;
 import io.swagger.annotations.ApiModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -19,6 +17,10 @@ public class ResResultDto<T> {
 //	private ResCmnMsgDto message = new ResCmnMsgDto();
 	@Schema(description = "결과데이터")
 	private T data;
+	@Schema(description = "결과페이징정보")
+	private ResPageDto paginate;
+	@Schema(description = "결과갯수")
+	private int count;
 
 	public ResResultDto(T dto) {
 		this.data = dto;
@@ -26,4 +28,11 @@ public class ResResultDto<T> {
 		this.code = 200;
 	}
 
+	public ResResultDto(T dto, ResPageDto paginateDto) {
+		this.data = dto;
+//		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(msg.getMsgC()), ResCmnMsgDto.class);
+		this.code = 200;
+		this.paginate = paginateDto;
+		this.count = paginateDto.getTotalRecords();
+	}
 }
