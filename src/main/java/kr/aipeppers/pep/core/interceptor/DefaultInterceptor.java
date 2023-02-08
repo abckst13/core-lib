@@ -58,7 +58,7 @@ public class DefaultInterceptor implements HandlerInterceptor {
 					!SpringUtil.getRequestUri().startsWith("/restapi")
 
 					// 아래부터 임시로 추가한 부분 주석 풀고 사용 로그인 부분 작업 완료 후 삭제
-//					&& !SpringUtil.getRequestUri().startsWith("/category")
+					&& !SpringUtil.getRequestUri().startsWith("/category")
 //					&& !SpringUtil.getRequestUri().startsWith("/mypage")
 //					&& !SpringUtil.getRequestUri().startsWith("/customer")
 					//여기까지

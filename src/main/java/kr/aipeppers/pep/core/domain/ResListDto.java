@@ -29,6 +29,7 @@ public class ResListDto<T> {
 //	private ResCmnMsgDto message = new ResCmnMsgDto();
 
 	public ResListDto(List<T> list) {
+		this.code = 200;
 		this.count = list.size();
 		this.data = list;
 //		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(message.getMsgC()), ResCmnMsgDto.class);
@@ -36,6 +37,7 @@ public class ResListDto<T> {
 	}
 
 	public ResListDto(List<T> list, ResPageDto paginateDto) {
+		this.code = 200;
 //		this.resultCnt = paginateDto.getTotalRecords();
 		this.count = paginateDto.getTotalRecords();
 		this.data = list;
