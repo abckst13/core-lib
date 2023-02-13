@@ -77,11 +77,11 @@ public class SwaggerConfig {
 	}
 
 	private ApiInfo apiInfo() {
-//		if (!appName.equals(CmnConst.APP_NAME_BO)) { //FRONT일때
-//			return new ApiInfoBuilder().title("AI PEPPERS FRONT 백엔드 REST API 명세서").description("AI PEPPERS FRONT 백엔드 REST API 상세 명세및 테스트 제공 화면입니다.").build();
-//		} else { //BACKOFFICE일때
+		if (appName.equals(CmnConst.APP_NAME_UI)) { //UI일때
+			return new ApiInfoBuilder().title("AI PEPPERS UI 백엔드 REST API 명세서").description("AI PEPPERS UI 백엔드 REST API 상세 명세및 테스트 제공 화면입니다.").build();
+		} else { //BACKOFFICE일때
 			return new ApiInfoBuilder().title("AI PEPPERS BACKOFFICE 백엔드 REST API 명세서").description("AI PEPPERS BACKOFFICE 백엔드 REST API 상세 명세및 테스트 제공 화면입니다.").build();
-//		}
+		}
 	}
 
 	@Deprecated

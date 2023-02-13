@@ -14,6 +14,7 @@ public class CmnConst {
 
 	/* Project Gubun */
 	public static final String APP_NAME_BO = "bo";
+	public static final String APP_NAME_UI = "ui";
 
 	/* Encode type */
 	public static final String DEFAULT_CHARSET = "UTF-8";

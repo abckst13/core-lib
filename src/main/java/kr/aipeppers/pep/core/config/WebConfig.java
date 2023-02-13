@@ -13,8 +13,9 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import kr.aipeppers.pep.core.cont.CmnConst;
+import kr.aipeppers.pep.core.interceptor.BoInterceptor;
 import kr.aipeppers.pep.core.interceptor.DefaultInterceptor;
-import kr.aipeppers.pep.core.interceptor.FrontInterceptor;
+import kr.aipeppers.pep.core.interceptor.UiInterceptor;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
@@ -52,8 +53,14 @@ public class WebConfig implements WebMvcConfigurer {
 
 	@Bean("cmnInterceptor")
 	@ConditionalOnProperty(name = "spring.application.name", havingValue = CmnConst.APP_NAME_BO)
-	public FrontInterceptor frontInterceptor() {
-		return new FrontInterceptor();
+	public BoInterceptor boInterceptor() {
+		return new BoInterceptor();
+	}
+
+	@Bean("cmnInterceptor")
+	@ConditionalOnProperty(name = "spring.application.name", havingValue = CmnConst.APP_NAME_UI)
+	public UiInterceptor uiInterceptor() {
+		return new UiInterceptor();
 	}
 
 	@Bean
