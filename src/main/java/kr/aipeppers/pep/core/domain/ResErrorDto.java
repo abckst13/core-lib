@@ -1,6 +1,7 @@
 package kr.aipeppers.pep.core.domain;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,12 +9,15 @@ import lombok.NoArgsConstructor;
 @ApiModel
 @NoArgsConstructor
 public class ResErrorDto {
-	private boolean success = false;
-	private ResCmnMsgDto message = new ResCmnMsgDto();
+	@Schema(description = "결과코드")
+	private String code;
+	@Schema(description = "결과메시지")
+	private String msg = "failed";
+	@Schema(description = "결과데이터")
+	private String data;
 
 	public ResErrorDto(String msgId, String msgNm) {
-		this.message.setMsgId(msgId);
-		this.message.setMsgNm(msgNm);
+		this.code = msgId;
+		this.data = msgNm;
 	}
-
 }

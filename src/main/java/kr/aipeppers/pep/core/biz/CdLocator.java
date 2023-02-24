@@ -18,8 +18,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-//public class CdLocator implements ApplicationListener<ContextRefreshedEvent> {
-public class CdLocator {
+public class CdLocator implements ApplicationListener<ContextRefreshedEvent> {
+//public class CdLocator {
 	private boolean initialized = false;
 	private String cdData;
 	private static final String CD_GROUP_KEY = "_ROOT_";
@@ -119,11 +119,11 @@ public class CdLocator {
 		initialize();
 	}
 
-//	@Override
-//	public void onApplicationEvent(ContextRefreshedEvent event) {
-//		if (!initialized) {
-//			initialize();
-//			initialized = true;
-//		}
-//	}
+	@Override
+	public void onApplicationEvent(ContextRefreshedEvent event) {
+		if (!initialized) {
+			initialize();
+			initialized = true;
+		}
+	}
 }

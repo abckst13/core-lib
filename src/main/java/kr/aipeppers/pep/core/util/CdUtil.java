@@ -59,7 +59,7 @@ public class CdUtil {
 		Box cdBox = getCd(grpCd, cd);
 		String cdValue = null;
 		if(cdBox != null && !cdBox.isEmpty()) {
-			cdValue = cdBox.nvl("itcInsNm");
+			cdValue = cdBox.nvl("cd");
 		}
 		return cdValue;
 	}

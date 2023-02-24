@@ -18,30 +18,30 @@ public class MsgUtil {
 		MsgUtil.msgLocator = msgLocator;
 	}
 
-	public static Box getMsgBox(String msgC) {
-		if(StringUtil.isEmpty(msgC)) {
+	public static Box getMsgBox(String msgId) {
+		if(StringUtil.isEmpty(msgId)) {
 			return null;
 		}
-		return msgLocator.getMsgBox(msgC);
+		return msgLocator.getMsgBox(msgId);
 	}
 
 
-	public static String getMsg(String msgC) {
-		Box msgBox = getMsgBox(msgC);
-		String msgValue = null;
+	public static String getMsg(String msgId) {
+		Box msgBox = getMsgBox(msgId);
+		String msgNm = null;
 		if(msgBox != null) {
-			msgValue = msgBox.nvl("msgKrnCn");
+			msgNm = msgBox.nvl("msgNm");
 		}
-		return msgValue;
+		return msgNm;
 	}
 
-	public static String getMsg(String msgC, Object[] messageParams) {
-		String msg = getMsg(msgC);
-		if(StringUtil.isNotEmpty(msg)) {
+	public static String getMsg(String msgId, Object[] messageParams) {
+		String msgNm = getMsg(msgId);
+		if(StringUtil.isNotEmpty(msgNm)) {
 			if(messageParams != null && messageParams.length > 0) {
-				msg = MessageFormat.format(msg, messageParams);
+				msgNm = MessageFormat.format(msgNm, messageParams);
 			}
 		}
-		return msg;
+		return msgNm;
 	}
 }

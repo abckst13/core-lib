@@ -16,8 +16,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-//public class MsgLocator implements ApplicationListener<ContextRefreshedEvent> {
-public class MsgLocator {
+public class MsgLocator implements ApplicationListener<ContextRefreshedEvent> {
+//public class MsgLocator {
 	private boolean initialized = false;
 	private String messageData;
 	ConcurrentMap<String, ConcurrentMap<String, Box>> msgMap = new ConcurrentHashMap<String, ConcurrentMap<String, Box>>();
@@ -93,11 +93,11 @@ public class MsgLocator {
 		initialize();
 	}
 
-//	@Override
-//	public void onApplicationEvent(ContextRefreshedEvent event) {
-//		if (!initialized) {
-//			initialize();
-//			initialized = true;
-//		}
-//	}
+	@Override
+	public void onApplicationEvent(ContextRefreshedEvent event) {
+		if (!initialized) {
+			initialize();
+			initialized = true;
+		}
+	}
 }
