@@ -6,15 +6,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@ApiModel(value = "통합플랫폼 REST API 응답 Dto", description = "통합플랫폼 REST API 응답 Dto")
+@ApiModel(value = "REST API 응답 Dto", description = "REST API 응답 Dto")
 @NoArgsConstructor
 public class ResResultDto<T> {
 	@Schema(description = "결과코드")
-	private int code;
+	private int code = 200;
 	@Schema(description = "결과메시지")
 	private String msg = "success";
 //	@Schema(description = "결과메시지")
-//	private ResCmnMsgDto message = new ResCmnMsgDto();
+//	private ResCmnMsgDto msg = new ResCmnMsgDto();
 	@Schema(description = "결과데이터")
 	private T data;
 	@Schema(description = "결과페이징정보")
@@ -23,15 +23,15 @@ public class ResResultDto<T> {
 	private int count;
 
 	public ResResultDto(T dto) {
-		this.data = dto;
+//		this.code = 200;
 //		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(msg.getMsgC()), ResCmnMsgDto.class);
-		this.code = 200;
+		this.data = dto;
 	}
 
 	public ResResultDto(T dto, ResPageDto paginateDto) {
-		this.data = dto;
+//		this.code = 200;
 //		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(msg.getMsgC()), ResCmnMsgDto.class);
-		this.code = 200;
+		this.data = dto;
 		this.paginate = paginateDto;
 		this.count = paginateDto.getTotalRecords();
 	}

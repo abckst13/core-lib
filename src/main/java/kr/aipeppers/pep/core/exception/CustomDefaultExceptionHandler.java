@@ -61,12 +61,12 @@ public class CustomDefaultExceptionHandler {
 			msgId = CmnConst.ResCd.RES_CD_ERROR;
 		}
 
-		//TODO : 추후 삭제 - 업무오류를 메타정의전까지 임시로 사용하는 예외처리
-		if(msgId.equals(CmnConst.ResCd.BIZ_ERROR)) {
-			if(messageParams != null && messageParams.length > 0) {
-				msg = ((String[])messageParams)[0];
-			}
-		}
+		//TODO : 업무오류를 메타정의전까지 임시로 사용하는 예외처리
+//		if(msgId.equals(CmnConst.ResCd.BIZ_ERROR)) {
+//			if(messageParams != null && messageParams.length > 0) {
+//				msg = ((String[])messageParams)[0];
+//			}
+//		}
 
 		if(StringUtil.isEmpty(msg)) {
 			msg = MsgUtil.getMsg(msgId, messageParams);

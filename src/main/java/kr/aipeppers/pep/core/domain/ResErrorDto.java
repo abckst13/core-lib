@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 public class ResErrorDto {
 	private boolean success = false;
 	private ResCmnMsgDto message = new ResCmnMsgDto();
-	
-	public ResErrorDto(String msgC, String msgKrnCn) {
-		this.message.setMsgC(msgC);
-		this.message.setMsgKrnCn(msgKrnCn);
+
+	public ResErrorDto(String msgId, String msgNm) {
+		this.message.setMsgId(msgId);
+		this.message.setMsgNm(msgNm);
 	}
-	
+
 }

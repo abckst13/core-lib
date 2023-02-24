@@ -477,7 +477,7 @@ public class ApiUtil {
 	 */
 	public static void setDownload(String fileName, File file) {
 		if(file == null || !file.isFile()) {
-			throw new BizException("EBMNM0008", new String[]{"파일이"}); //{0} 존재하지 않습니다.
+			throw new BizException("E107", new String[]{"파일이"}); //{0} 존재하지 않습니다.
 		}
 		ModelBox modelBox = ApiUtil.getModelBox();
 		modelBox.put(CmnConst.MODEL_DOWNLOAD_FILE_NAME, fileName);
@@ -491,7 +491,7 @@ public class ApiUtil {
 	 */
 	public static void setDownload(File file) {
 		if(file == null || !file.isFile()) {
-			throw new BizException("EBMNM0008", new String[]{"파일이"}); //{0} 존재하지 않습니다.
+			throw new BizException("E107", new String[]{"파일이"}); //{0} 존재하지 않습니다.
 		}
 		setDownload(file.getName(), file);
 	}

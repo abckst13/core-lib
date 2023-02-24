@@ -97,52 +97,49 @@ public class CmnConst {
 
 	/* Response code */
 	public static class ResCd {
-		public static final String RES_CD_SUCCESS = "NCMNM0001";  //성공
-		public static final String RES_VALIDATION = "ESMNM0001";  //유효성 검증 오류
-		public static final String RES_CD_400 = "ESMNM0002";  //Bad Request
-		public static final String RES_CD_UNAUTHORIZED = "ESMNM0003";  //UNAUTHORIZED
-		public static final String RES_CD_FORBIDDEN = "ESMNM0004";  //FORBIDDEN
-		public static final String RES_CD_NOT_FOUND = "ESMNM0005";  //NOT FOUND
-//		public static final String RES_UNPROCESSABLE_ENTITY = "ESMNM0006";  //UNPROCESSABLE_ENTITY
-		public static final String RES_CD_ERROR = "ESMNM0007";  //시스템오류 - {0}
-		public static final String RES_CD_SQL_ERROR = "ESMNM0008";  //SQL 실행오류 ({0})
-		public static final String RES_CD_SESSION_OUT = "ESMNM0009";  //세션 만료
-		public static final String RES_CD_DUPLICATE = "ESMNM0010";  //중복 오류
-//		public static final String RES_CD_GATEWAY_TIMEOUT = "ESMNM0011";  //Gateway Timeout
-		public static final String RES_CD_IF_ERROR = "ESMNM0012";  //{0} 연동 오류
-		public static final String BIZ_ERROR = "ETEMP0001";  //{0}
+		public static final String RES_CD_SUCCESS = "S200";  //성공
+		public static final String RES_VALIDATION = "F111";  //유효성 검증 오류
+		public static final String RES_CD_400 = "F400";  //Bad Request
+		public static final String RES_CD_UNAUTHORIZED = "F401";  //UNAUTHORIZED
+		public static final String RES_CD_FORBIDDEN = "F403";  //FORBIDDEN
+		public static final String RES_CD_NOT_FOUND = "F404";  //NOT FOUND
+		public static final String RES_CD_ERROR = "F500";  //시스템오류 - {0}
+		public static final String RES_CD_SQL_ERROR = "F501";  //SQL 실행오류 ({0})
+		public static final String RES_CD_SESSION_OUT = "F502";  //세션 만료
+		public static final String RES_CD_DUPLICATE = "F503";  //중복 오류
+		public static final String RES_CD_IF_ERROR = "F600";  //{0} 연동 오류
 
-		//	ESMNM0013	Content-Type 오류
-		//	ESMNM0014	입력 데이터 포맷 오류
-		//	ESMNM0015	{0} - 필수 항목 오류
-		//	ESMNM0016	{0} - 숫자 타입 오류
-		//	ESMNM0017	{0} - 날짜 패턴 오류 ({1})
-		//	ESMNM0018	{0} - 최소길이 오류 (more than {1})
-		//	ESMNM0019	{0} - 최대길이 오류 (less than {1})
-		//	ESMNM0020	{0} - 유효값 오류 (more than {1},  less than {2})
-		//	ESMNM0021	{0} - 패턴 오류
-		//	ESMNM0022	{0} - 최소 Byte 길이 오류 (more than {1})
-		//	ESMNM0023	{0} - 최대 Byte 길이 오류 (less than {1})
-		//	ESMNM0024	필드 '{0}'의 일치항목이 [{1}]에 존재하지 않습니다.
-		//	ESMNM0025	{0} - 최소값 오류 (more than {1})
-		//	ESMNM0026	{0} - 최대값 오류 (less than {1})
-		//	ESMNM0027	{0} - 유효성조건 오류
-		//	ESMNM0028	일시중지된 서비스
-		//	ESMNM0029	사용만료된 서비스
+		//	F104	Content-Type 오류
+		//	F110	입력 데이터 포맷 오류
+		//	F112	{0} - 필수 항목 오류
+		//	F113	{0} - 숫자 타입 오류
+		//	F114	{0} - 날짜 패턴 오류 ({1})
+		//	F115	{0} - 최소길이 오류 (more than {1})
+		//	F116	{0} - 최대길이 오류 (less than {1})
+		//	F117	{0} - 유효값 오류 (more than {1},  less than {2})
+		//	F118	{0} - 패턴 오류
+		//	F119	{0} - 최소 Byte 길이 오류 (more than {1})
+		//	F120	{0} - 최대 Byte 길이 오류 (less than {1})
+		//	F125	{0}의 일치항목이 [{1}]에 존재하지 않습니다.
+		//	F122	{0} - 최소값 오류 (more than {1})
+		//	F123	{0} - 최대값 오류 (less than {1})
+		//	F124	{0} - 유효성조건 오류
+		//	F405	일시중지된 서비스
+		//	F406	사용만료된 서비스
 
-		//	EBMNM0001	사용자 정보가 존재하지 않습니다.
-		//	EBMNM0002	로그인 세션이 존재하지 않습니다.
-		//	EBMNM0003	첨부파일 등록이 실패하였습니다.
-		//	EBMNM0004	첨부가능 파일수({0})를 초과했습니다.
-		//	EBMNM0005	허용({0})되지 않은 첨부파일({1}) 형식입니다.
-		//	EBMNM0006	첨부가능 용량({0})을 초과했습니다.
-		//	EBMNM0007	해당 그룹코드에 상세코드가 존재합니다.
-		//	EBMNM0008	{0} 존재하지 않습니다.
-		//	EBMNM0009	유효하지 않은 접근입니다.
-		//	EBMNM0010	권한이 없습니다.
-		//	EBMNM0011	잘못된 엑셀 파일입니다. {0}
-		//	EBMNM0012	사용할 수 없는 EMAIL입니다.
-		//	EBMNM0013	엑셀 오류입니다. - [{0}번째 행, {1}번째 컬럼의 값 {2} : {3}]
+		//	E100	사용자 정보가 존재하지 않습니다.
+		//	E101	로그인 정보가 존재하지 않습니다.
+		//	E102	첨부파일 등록이 실패하였습니다.
+		//	E103	첨부가능 파일수({0})를 초과했습니다.
+		//	E104	허용({0})되지 않은 첨부파일({1}) 형식입니다.
+		//	E105	첨부가능 용량({0})을 초과했습니다.
+		//	E106	해당 그룹코드에 상세코드가 존재합니다.
+		//	E107	{0} 존재하지 않습니다.
+		//	E109	유효하지 않은 접근입니다.
+		//	E110	권한이 없습니다.
+		//	E111	잘못된 엑셀 파일입니다. {0}
+		//	E112	사용할 수 없는 EMAIL입니다.
+		//	E113	엑셀 오류입니다. - [{0}번째 행, {1}번째 컬럼의 값 {2} : {3}]
 	}
 
 	public static final String AES_ENCRYPT_KEY = "MDEyMzQ1Njc4OUFCQ0RFRg==";  //암호화 키(encrypt key)

@@ -10,39 +10,34 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@ApiModel
+@ApiModel(value = "REST API 응답 List Dto", description = "REST API 응답 List Dto")
 @NoArgsConstructor
 public class ResListDto<T> {
 	@Schema(description = "결과코드")
-	private int code;
+	private int code = 200;
 	@Schema(description = "결과메시지")
 	private String msg = "success";
 //	@Schema(description = "결과메시지")
-//	private ResCmnMsgDto message = new ResCmnMsgDto();
+//	private ResCmnMsgDto msg = new ResCmnMsgDto();
 	@Schema(description = "결과갯수")
 	private int count;
 	@Schema(description = "결과리스트")
 	private List<T> data;
 	@Schema(description = "결과페이징정보")
 	private ResPageDto paginate;
-//	@Schema(description = "결과메시지")
-//	private ResCmnMsgDto message = new ResCmnMsgDto();
 
 	public ResListDto(List<T> list) {
-		this.code = 200;
-		this.count = list.size();
+//		this.code = 200;
+//		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(message.getMsgId()), ResCmnMsgDto.class);
 		this.data = list;
-//		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(message.getMsgC()), ResCmnMsgDto.class);
-//		this.message.setResultCnt(this.resultCnt);
+		this.count = list.size();
 	}
 
 	public ResListDto(List<T> list, ResPageDto paginateDto) {
-		this.code = 200;
-//		this.resultCnt = paginateDto.getTotalRecords();
-		this.count = paginateDto.getTotalRecords();
+//		this.code = 200;
+//		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(message.getMsgId()), ResCmnMsgDto.class);
 		this.data = list;
 		this.paginate = paginateDto;
-//		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(message.getMsgC()), ResCmnMsgDto.class);
-//		this.message.setResultCnt(this.resultCnt);
+		this.count = paginateDto.getTotalRecords();
 	}
 }
