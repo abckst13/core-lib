@@ -588,7 +588,25 @@ public class DateUtil {
 	}
 
 	/**
-	 * Now yyyymmdd.
+	 * Now yyyy.
+	 *
+	 * @return the string
+	 */
+	public static String nowYYYY() {
+		return now(YEAR_PATTERN);
+	}
+
+	/**
+	 * Now mm.
+	 *
+	 * @return the string
+	 */
+	public static String nowMM() {
+		return now(MONTH_PATTERN);
+	}
+
+	/**
+	 * Now yyyymm.
 	 *
 	 * @return the string
 	 */
@@ -597,7 +615,7 @@ public class DateUtil {
 	}
 
 	/**
-	 * Now yyyymmdd dash.
+	 * Now yyyymm dash.
 	 *
 	 * @return the string
 	 */
