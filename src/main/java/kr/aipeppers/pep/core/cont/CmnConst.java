@@ -140,9 +140,10 @@ public class CmnConst {
 		//	E111	잘못된 엑셀 파일입니다. {0}
 		//	E112	사용할 수 없는 EMAIL입니다.
 		//	E113	엑셀 오류입니다. - [{0}번째 행, {1}번째 컬럼의 값 {2} : {3}]
-		//	E114	이미 존재하는 데이터 입니다.
+		//	E114	{0} 존재하는 데이터 입니다.
 		//	E115	그룹코드 값이 존재하지 않습니다.
 		//  E116	다른 일자의 출석체크를 진행 할 수 없습니다.
+		//	E117	{0} 이미 신청하였습니다.
 	}
 
 	public static final String AES_ENCRYPT_KEY = "MDEyMzQ1Njc4OUFCQ0RFRg==";  //암호화 키(encrypt key)
