@@ -22,7 +22,7 @@ public class Paginate {
 
 	@Value("${paginate.page-size}")
 	private int paginatePageSize;
-	
+
 	@Value("${paginate.return-max-row}")
 	private int paginateReturnMaxRow;
 
@@ -44,7 +44,7 @@ public class Paginate {
 		String paramPaginate = getPaginateParam(CmnConst.PARAM_PAGINATE, paginateModel.getSuffix());
 		modelMap.addAttribute(paramPaginate, paramBox.get(paramPaginate));
 	}
-	
+
 	public ResPageDto init(Box paramBox, int totalRecords) throws Exception {
 		PaginateModel paginateModel = initLoad(paramBox, totalRecords);
 		String paramPaginate = getPaginateParam(CmnConst.PARAM_PAGINATE, paginateModel.getSuffix());
@@ -92,13 +92,13 @@ public class Paginate {
 			paginateModel.setStartNum(1);
 			paginateModel.setEndNum(ConfigUtil.getInt("excel.max.row"));
 		}
-		
+
 		if (paginateReturnMaxRow > 0) { //리턴 row 과다방지
 			if (paginateReturnMaxRow < (paginateModel.getEndNum() - paginateModel.getStartNum())) {
 				paginateModel.setEndNum(paginateModel.getStartNum() + paginateReturnMaxRow - 1);
 			}
 		}
-		
+
 		paginateModel.setPage(paramBox.getInt("page"));
 		paginateModel.setPageUnit(paramBox.getInt("pageUnit"));
 		return paginateModel;
