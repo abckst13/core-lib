@@ -105,12 +105,12 @@ public class ReloadMapper extends SqlSessionFactoryBean implements DisposableBea
 					if (map.containsKey(resource)) {
 						long lastModified = ((Long) map.get(resource)).longValue();
 						if (lastModified != modified) {
-							map.put(resource, new Long(modified));
+							map.put(resource, modified);
 							modifiedResources.add(resource.getDescription());
 							retVal = true;
 						}
 					} else {
-						map.put(resource, new Long(modified));
+						map.put(resource, modified);
 					}
 				} catch (IOException e) {
 					log.error("caught exception", e);
@@ -140,7 +140,7 @@ public class ReloadMapper extends SqlSessionFactoryBean implements DisposableBea
 
 	public SqlSessionFactory getObject() throws Exception {
 		if (this.proxy == null) {
-		      afterPropertiesSet();
+			afterPropertiesSet();
 		}
 
 		return this.proxy;

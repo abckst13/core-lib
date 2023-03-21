@@ -72,7 +72,7 @@ public class ExcelRederUtil {
 									if(org.apache.poi.ss.usermodel.DateUtil.isCellDateFormatted(cell)){
 										data[idx][i] = "";
 									} else{
-										Double value = new Double(cell.getNumericCellValue());
+										Double value = cell.getNumericCellValue();
 										if ((double) value.longValue() == value.doubleValue()) {
 											data[idx][i] = data[idx][i] = Long.toString(value.longValue());
 										} else {
@@ -82,7 +82,7 @@ public class ExcelRederUtil {
 								} else if(evaluator.evaluateFormulaCell(cell) == org.apache.poi.ss.usermodel.Cell.CELL_TYPE_STRING){
 									data[idx][i] = cell.getStringCellValue();
 								} else if(evaluator.evaluateFormulaCell(cell) == org.apache.poi.ss.usermodel.Cell.CELL_TYPE_BOOLEAN){
-									data[idx][i] = new Boolean(cell.getBooleanCellValue()).toString();
+									data[idx][i] = String.valueOf(cell.getBooleanCellValue());
 								} else {
 									data[idx][i] = cell.toString();
 								}
