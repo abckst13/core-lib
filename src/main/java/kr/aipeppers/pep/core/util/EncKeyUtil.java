@@ -28,4 +28,8 @@ public class EncKeyUtil {
 		return encKeyLocator.getEncKeyBox(title);
 	}
 
+	public static String getEncKey(String title) {
+		return encKeyLocator.getEncKeyBox(title).nvl("value");
+	}
+
 }

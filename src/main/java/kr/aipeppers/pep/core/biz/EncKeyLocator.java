@@ -20,19 +20,19 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class EncKeyLocator implements ApplicationListener<ContextRefreshedEvent> {
 	private boolean initialized = false;
-	private String encKeyData;
 	ConcurrentMap<String, ConcurrentMap<String, Box>> encMap = new ConcurrentHashMap<String, ConcurrentMap<String, Box>>();
+
 	@Autowired
 	@Qualifier("sqlSessionTemplate")
 	private SqlSessionTemplate dao;
 
 	public Box getEncKeyBox(String title) {
 		ConcurrentMap<String, Box> encKeyMap = encMap.get(title);
-		Box cdBox = null;
+		Box keyBox = null;
 		if(title != null && encKeyMap != null) {
-			cdBox = encKeyMap.get(title);
+			keyBox = encKeyMap.get(title);
 		}
-		return cdBox;
+		return keyBox;
 	}
 
 	/**
@@ -55,32 +55,6 @@ public class EncKeyLocator implements ApplicationListener<ContextRefreshedEvent>
 			}
 			encKeyDetailMap.put(innerBox.nvl("title"), innerBox);
 		}
-		
-	}
-
-	public String getData() {
-		return encKeyData;
-	}
-
-	public void fileCreate(List<Box> encKeyList) throws Exception {
-		StringBuffer sb = new StringBuffer();
-		StringBuffer rows = new StringBuffer();
-		sb.append("window['encKeyList'] =\n");
-		sb.append("	[\n");
-		sb.append("		%rows%");
-		sb.append("	]\n");
-		String line = "	{'id': '%id%', 'title': '%title%', 'value': '%value%'},\n";
-		for (int idx = 0; idx < encKeyList.size(); idx++) {
-			String str = "";
-			Box inBox = (Box)encKeyList.get(idx);
-			if (null != inBox) {
-				str = line.replaceAll("%id%", inBox.nvl("id").trim())
-						.replaceAll("%title%", inBox.nvl("title").trim())
-						.replaceAll("%value%", inBox.nvl("value").trim());
-				rows.append(str);
-			}
-		}
-		encKeyData = sb.toString().replaceAll("%rows%", rows.toString());
 
 	}
 

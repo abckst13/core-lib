@@ -1,8 +1,8 @@
 package kr.aipeppers.pep.core.util.crypto;
 
 
-@Deprecated
-public class AesOldUtil {
+//@Deprecated
+public class AesBasisUtil {
 
 	private static final String TRANSFORMATION = "AES/CBC/PKCS5Padding";
 	private static final String ALGORITHM = "AES";
@@ -151,6 +151,10 @@ public class AesOldUtil {
 	 */
 	public static String decryptString(String data, String key) {
 		return new String(CipherUtil.decrypt(Base64Util.decode(data), key.getBytes(), TRANSFORMATION, ALGORITHM));
+	}
+
+	public static String decryptString(String data, String key, String iv) {
+		return new String(CipherUtil.decrypt(Base64Util.decode(data), key.getBytes(), TRANSFORMATION, ALGORITHM, iv.getBytes()));
 	}
 
 }
