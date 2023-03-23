@@ -1,9 +1,7 @@
 package kr.aipeppers.pep.core.util;
 
-import java.text.MessageFormat;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import kr.aipeppers.pep.core.biz.EncKeyLocator;
@@ -15,11 +13,17 @@ public class EncKeyUtil {
 
 	private static EncKeyLocator encKeyLocator;
 
-	@Autowired(required=true)
+	/**
+	 * @param encKeyLocator
+	 */
 	private EncKeyUtil(EncKeyLocator encKeyLocator) {
 		EncKeyUtil.encKeyLocator = encKeyLocator;
 	}
 
+	/**
+	 * @Method Name : getEncKeyBox
+	 * @return
+	 */
 	public static List<Box> getEncKeyBox() {
 //		if(box.isEmpty()) {
 //			return null;
