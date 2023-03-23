@@ -24,11 +24,8 @@ public class EncKeyUtil {
 	 * @Method Name : getEncKeyBox
 	 * @return
 	 */
-	public static List<Box> getEncKeyBox() {
-//		if(box.isEmpty()) {
-//			return null;
-//		}
-		return encKeyLocator.getEncKeyBox();
+	public static Box getEncKeyBox(String title) {
+		return encKeyLocator.getEncKeyBox(title);
 	}
 
 }
