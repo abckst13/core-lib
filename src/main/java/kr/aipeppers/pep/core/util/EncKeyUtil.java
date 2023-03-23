@@ -20,19 +20,11 @@ public class EncKeyUtil {
 		EncKeyUtil.encKeyLocator = encKeyLocator;
 	}
 
-	public static List<Box> getEncKeyBox(Box box) {
-		if(box.isEmpty()) {
-			return null;
-		}
-		return encKeyLocator.getEncKeyBox(box);
+	public static List<Box> getEncKeyBox() {
+//		if(box.isEmpty()) {
+//			return null;
+//		}
+		return encKeyLocator.getEncKeyBox();
 	}
 
-//	public static Box getEncKey(Box box) {
-//		List<Box> encKeyBox = getEncKeyBox(box);
-//		Box title = null;
-//		if(encKeyBox != null) {
-//			title = encKeyBox;
-//		}
-//		return title;
-//	}
 }

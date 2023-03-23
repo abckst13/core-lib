@@ -25,7 +25,7 @@ public class EncKeyLocator implements ApplicationListener<ContextRefreshedEvent>
 	@Qualifier("sqlSessionTemplate")
 	private SqlSessionTemplate dao;
 
-	public List<Box> getEncKeyBox(Box box) {
+	public List<Box> getEncKeyBox() {
 		return encKeyMap;
 	}
 
@@ -35,6 +35,7 @@ public class EncKeyLocator implements ApplicationListener<ContextRefreshedEvent>
 		String[] title = {"CRYPT_PASS" , "CRYPT_IV" , "G_BSZUSER_KEY" , "G_BSZIV"};
 		encKeyBox.put("title", title);
 		List<Box> encKeyList = dao.selectList("cmn.apiSettingList", encKeyBox);
+		log.debug("encKeyList: {}", encKeyList);
 		for(Box innrBox : encKeyList) {
 			if(encKeyList != null && !encKeyList.isEmpty()) {
 				encKeyMap.add(innrBox);
