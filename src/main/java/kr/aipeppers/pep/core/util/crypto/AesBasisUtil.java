@@ -80,6 +80,10 @@ public class AesBasisUtil {
 		return Base64Util.encodeString(CipherUtil.encrypt(data.getBytes(), key.getBytes(), TRANSFORMATION, ALGORITHM));
 	}
 
+	public static String encryptString(String data, String key, String iv) {
+		return Base64Util.encodeString(CipherUtil.encrypt(data.getBytes(), key.getBytes(), TRANSFORMATION, ALGORITHM, iv.getBytes()));
+	}
+
 	/**
 	 * Decrypt.
 	 *
@@ -153,6 +157,13 @@ public class AesBasisUtil {
 		return new String(CipherUtil.decrypt(Base64Util.decode(data), key.getBytes(), TRANSFORMATION, ALGORITHM));
 	}
 
+	/**
+	 * Decrypt.
+	 *
+	 * @param data the data
+	 * @param key the key
+	 * @return the byte[]
+	 */
 	public static String decryptString(String data, String key, String iv) {
 		return new String(CipherUtil.decrypt(Base64Util.decode(data), key.getBytes(), TRANSFORMATION, ALGORITHM, iv.getBytes()));
 	}
