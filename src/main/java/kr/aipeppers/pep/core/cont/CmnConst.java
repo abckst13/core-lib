@@ -144,6 +144,9 @@ public class CmnConst {
 		//	E115	그룹코드 값이 존재하지 않습니다.
 		//  E116	다른 일자의 출석체크를 진행 할 수 없습니다.
 		//	E117	{0} 이미 신청하였습니다.
+		//	E118	휴대폰 인증에 실패하였습니다.
+		//	E119	인증시간이 지났습니다.
+		//	E120	인증내역이 없습니다.
 	}
 
 	public static final String AES_ENCRYPT_KEY = "MDEyMzQ1Njc4OUFCQ0RFRg==";  //암호화 키(encrypt key)
