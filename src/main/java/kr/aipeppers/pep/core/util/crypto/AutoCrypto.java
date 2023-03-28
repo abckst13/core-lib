@@ -3,7 +3,9 @@ package kr.aipeppers.pep.core.util.crypto;
 import java.util.Base64;
 
 import kr.aipeppers.pep.core.util.EncKeyUtil;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class AutoCrypto {
 
 	/**
@@ -91,13 +93,13 @@ public class AutoCrypto {
 			int num = (int) ch;
 			text[i] = (byte) num;
 		}
-		//seed 인코딩 후
-		byte[] seedEncodeData = SeedUtil.encrypt(text , SeedKeyByte ,SeedIVByte , null);
+		//seed 디코딩 후
+		byte[] seedDecodeData = SeedUtil.decrypt(text , SeedKeyByte ,SeedIVByte , null);
+		log.debug("seedDecodeData: {}", seedDecodeData);
+		Base64.Decoder decoder = Base64.getDecoder() ;
+		byte[] decArr = decoder.decode(seedDecodeData);
+		String decTxt = new String(decArr , "utf-8");
 
-		Base64.Encoder encoder = Base64.getEncoder() ;
-		byte[] encArr = encoder.encode(seedEncodeData);
-		String encTxt = new String(encArr , "utf-8");
-
-		return encTxt;
+		return decTxt;
 	}
 }

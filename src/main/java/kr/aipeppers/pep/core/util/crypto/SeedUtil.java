@@ -1,5 +1,8 @@
 package kr.aipeppers.pep.core.util.crypto;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class SeedUtil {
 
 	public static final String TRANSFORMATION_MODE_CBC = "CBC";

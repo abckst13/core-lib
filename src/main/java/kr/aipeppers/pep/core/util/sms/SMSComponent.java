@@ -106,7 +106,6 @@ public class SMSComponent {
 							else
 								msgid += "발송실패: ";
 							resBox.put("result", msgid.substring(0,4));
-							log.debug("result1111: {}", result.substring(0,2));
 							String toDate = DateUtil.now(DateUtil.TIMESTAMP_DC_PATTERN);
 							resBox.put("accessDt", toDate);
 							msgid += result + "\n";
