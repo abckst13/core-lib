@@ -957,6 +957,18 @@ public class StringUtil {
 	}
 
 	/**
+	 * Byte String To byte
+	 */
+	public static byte[] bstrToByte(String byteStr) {
+		String[] byteStrArry = byteStr.split(",");
+		byte[] strByte = new byte[byteStrArry.length] ;
+		for(int idx = 0; idx < byteStrArry.length; idx++) {
+			strByte[idx] = (byte) Integer.parseInt(byteStrArry[idx], 16);
+		}
+		return strByte;
+	}
+
+	/**
 	 * First char to upper case.
 	 *
 	 * @param str the str

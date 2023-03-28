@@ -5,9 +5,10 @@ import org.apache.commons.codec.binary.BaseNCodec;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Base64Util {
+import lombok.extern.slf4j.Slf4j;
 
-	protected Logger log = LoggerFactory.getLogger(this.getClass());
+@Slf4j
+public class Base64Util {
 
 	/**
 	 * Encode.

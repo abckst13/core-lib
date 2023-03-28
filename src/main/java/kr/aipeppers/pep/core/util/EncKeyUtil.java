@@ -1,7 +1,5 @@
 package kr.aipeppers.pep.core.util;
 
-import java.util.List;
-
 import org.springframework.stereotype.Component;
 
 import kr.aipeppers.pep.core.biz.EncKeyLocator;

@@ -1,8 +1,7 @@
 package kr.aipeppers.pep.core.util.crypto;
 
-import java.util.Base64;
-
 import kr.aipeppers.pep.core.util.EncKeyUtil;
+import kr.aipeppers.pep.core.util.StringUtil;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -37,33 +36,7 @@ public class AutoCrypto {
 	 * @throws Exception
 	 */
 	public static String seedEncrypt(String value) throws Exception {
-		String[] SeedKey = null;
-		String[] SeedIV = null;
-		SeedKey = EncKeyUtil.getEncKey("G_BSZUSER_KEY").split(",");
-		SeedIV = EncKeyUtil.getEncKey("G_BSZIV").split(",");
-
-		byte[] SeedKeyByte = new byte[SeedKey.length] ;
-		byte[] SeedIVByte = new byte[SeedIV.length] ;
-		//10진수 변환
-		for(int i=0 ; i<16; i++) {
-			SeedKeyByte[i] = (byte) Integer.parseInt(SeedKey[i], 16);
-			SeedIVByte[i] = (byte) Integer.parseInt(SeedIV[i], 16);
-		}
-
-		//byte 배열에 넣어줌
-		byte[] text = new byte[value.length()];
-		for(int i =0 ;i<value.length();i++ ) {
-			char ch = value.charAt(i);
-			int num = (int) ch;
-			text[i] = (byte) num;
-		}
-		//seed 인코딩 후
-		byte[] seedEncodeData = SeedUtil.encrypt(text , SeedKeyByte ,SeedIVByte , null);
-
-		Base64.Encoder encoder = Base64.getEncoder() ;
-		byte[] encArr = encoder.encode(seedEncodeData);
-		String encTxt = new String(encArr , "utf-8");
-		return encTxt;
+		return Base64Util.encodeString(SeedUtil.encrypt(value.getBytes(), StringUtil.bstrToByte(EncKeyUtil.getEncKey("G_BSZUSER_KEY")), StringUtil.bstrToByte(EncKeyUtil.getEncKey("G_BSZIV")), null));
 	}
 
 	/**
@@ -73,33 +46,6 @@ public class AutoCrypto {
 	 * @throws Exception
 	 */
 	public static String seedDecrypt(String value) throws Exception {
-		String[] SeedKey = null;
-		String[] SeedIV = null;
-		SeedKey = EncKeyUtil.getEncKey("G_BSZUSER_KEY").split(",");
-		SeedIV = EncKeyUtil.getEncKey("G_BSZIV").split(",");
-
-		byte[] SeedKeyByte = new byte[SeedKey.length] ;
-		byte[] SeedIVByte = new byte[SeedIV.length] ;
-		//10진수 변환
-		for(int i=0 ; i<16; i++) {
-			SeedKeyByte[i] = (byte) Integer.parseInt(SeedKey[i], 16);
-			SeedIVByte[i] = (byte) Integer.parseInt(SeedIV[i], 16);
-		}
-
-		//byte 배열에 넣어줌
-		byte[] text = new byte[value.length()];
-		for(int i =0 ;i<value.length();i++ ) {
-			char ch = value.charAt(i);
-			int num = (int) ch;
-			text[i] = (byte) num;
-		}
-		//seed 디코딩 후
-		byte[] seedDecodeData = SeedUtil.decrypt(text , SeedKeyByte ,SeedIVByte , null);
-		log.debug("seedDecodeData: {}", seedDecodeData);
-		Base64.Decoder decoder = Base64.getDecoder() ;
-		byte[] decArr = decoder.decode(seedDecodeData);
-		String decTxt = new String(decArr , "utf-8");
-
-		return decTxt;
+		return SeedUtil.decryptString(Base64Util.decode(value), StringUtil.bstrToByte(EncKeyUtil.getEncKey("G_BSZUSER_KEY")), StringUtil.bstrToByte(EncKeyUtil.getEncKey("G_BSZIV")), null);
 	}
 }
