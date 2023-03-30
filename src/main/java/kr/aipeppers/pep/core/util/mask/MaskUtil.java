@@ -1,7 +1,11 @@
 package kr.aipeppers.pep.core.util.mask;
 
-import kr.aipeppers.pep.core.exception.BizException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import kr.aipeppers.pep.core.exception.BizException;
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 public class MaskUtil {
 
     public static String maskPhoneNumber(String phoneNumber) {
@@ -29,5 +33,12 @@ public class MaskUtil {
         String maskedEmailId = emailId.substring(0, 2) + "*".repeat(emailId.length() - 2);
         String maskedEmail = maskedEmailId + email.substring(index);
         return maskedEmail;
+    }
+
+    public static boolean passwordChk(String password) {
+    	String strPattern = "^[a-zA-Z0-9~!@#$%^&*|\\\\\\\\'\\\\\\\";:/?^=+_()<>-]{8,16}$";
+        Pattern pattern = Pattern.compile(strPattern);
+        Matcher matcher = pattern.matcher(password);
+    	return matcher.matches();
     }
 }

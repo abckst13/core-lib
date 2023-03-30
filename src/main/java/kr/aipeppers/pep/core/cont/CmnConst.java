@@ -150,6 +150,7 @@ public class CmnConst {
 		//	E120	인증내역이 없습니다.
 		//	E121	탈퇴한 회원입니다.
 		//	E122	일치하는 회원정보가 없습니다.\n 회원가입 후 이용해 주세요.
+		//	E123	password는 8 ~ 16자 이내로 영문, 숫자, 특수문자가 포함되어야 합니다.
 	}
 
 	public static final String AES_ENCRYPT_KEY = "MDEyMzQ1Njc4OUFCQ0RFRg==";  //암호화 키(encrypt key)
