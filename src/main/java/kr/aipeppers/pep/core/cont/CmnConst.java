@@ -33,6 +33,7 @@ public class CmnConst {
 	/* Session Key */
 	public static final String SES_USER_DATA = "SES_USER_DATA";
 	public static final String SES_USER_ID = "SES_USER_ID";
+	public static final String SES_USER_EMAIL = "SES_USER_EMAIL";
 
 	/* Redis Biz Key */
 	public static final String REDIS_CMN = "CMN:"; //REDIS 공통 영역 데이터
@@ -147,6 +148,8 @@ public class CmnConst {
 		//	E118	휴대폰 인증에 실패하였습니다.
 		//	E119	인증시간이 지났습니다.
 		//	E120	인증내역이 없습니다.
+		//	E121	탈퇴한 회원입니다.
+		//	E122	일치하는 회원정보가 없습니다.\n 회원가입 후 이용해 주세요.
 	}
 
 	public static final String AES_ENCRYPT_KEY = "MDEyMzQ1Njc4OUFCQ0RFRg==";  //암호화 키(encrypt key)
