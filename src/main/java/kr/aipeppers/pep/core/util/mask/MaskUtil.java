@@ -14,7 +14,7 @@ public class MaskUtil {
         String middle = numberArray[1];
         String last = numberArray[2];
         String maskedMiddle = middle.substring(0, 2) + "**";
-        String maskedLast = "**" + last.substring(2, 4);
+        String maskedLast =  last.substring(0, 2) + "**";
         return numberArray[0] + "-" + maskedMiddle + "-" + maskedLast;
     }
 
