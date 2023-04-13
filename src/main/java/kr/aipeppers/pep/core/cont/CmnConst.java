@@ -29,11 +29,20 @@ public class CmnConst {
 	public static final String LOCAL_IP6 = "0:0:0:0:0:0:0:1";
 	public static final String LOCAL_IP = "127.0.0.1";
 
+	/* push */
+	public static final String PUSH_VIDEO_CMT = "님이 회원님의 영상에 댓글을 달았습니다.";
+	public static final String PUSH_REPLY_CMT = "님이 회원님의 댓글에 대댓글을 달았습니다.";
+	public static final String PUSH_CMT = "님이 댓글을 달았습니다.";
+	public static final String PUSH_FLOW = "님이 회원님을 팔로우 하였습니다.";
+	public static final String PUSH_VIDEO_LIKE = "님이 회원님의 영상을 좋아합니다.";
+	public static final String PUSH_NEW_CONTENT = "님이 새로운 게시물을 업데이트 했습니다.";
+	public static final String PUSH_NEW_VIDEO = "님이 비디오를 업로드 하였습니다.";
 
 	/* Session Key */
 	public static final String SES_USER_DATA = "SES_USER_DATA";
 	public static final String SES_USER_ID = "SES_USER_ID";
 	public static final String SES_USER_EMAIL = "SES_USER_EMAIL";
+	public static final String SES_DEVICE_TOKEN = "SES_DEVICE_TOKEN";
 
 	/* Redis Biz Key */
 	public static final String REDIS_CMN = "CMN:"; //REDIS 공통 영역 데이터
