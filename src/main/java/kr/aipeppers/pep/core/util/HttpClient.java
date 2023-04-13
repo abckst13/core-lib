@@ -186,8 +186,8 @@ public class HttpClient {
 //			}
 //			String serverSystemName = ServerUtil.getServerSystemName();
 //			String serverHostname = ServerUtil.getServerHostname();
-			String serverSystemName = "gsc";
-			String serverHostname = "gsc";
+			String serverSystemName = "pepper";
+			String serverHostname = "pepper";
 			clientApiDto.setRqtSys(serverSystemName);
 			clientApiDto.setRqtHost(serverHostname);
 
