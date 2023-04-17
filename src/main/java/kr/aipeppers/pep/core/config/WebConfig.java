@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import kr.aipeppers.pep.core.cont.CmnConst;
@@ -49,6 +50,12 @@ public class WebConfig implements WebMvcConfigurer {
 			.allowedOrigins(corsHostsAllows);
 //			.allowedMethods("GET", "POST")
 		}
+	}
+
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/upload/**")
+			.addResourceLocations("file:///data/");
 	}
 
 	@Bean("cmnInterceptor")
