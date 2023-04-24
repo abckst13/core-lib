@@ -10,12 +10,11 @@ public class MaskUtil {
 
     public static String maskPhoneNumber(String phoneNumber) {
         // 전화번호 가운데 4자리 중 마지막 2자리, 끝 4자리 중 마지막 2자리 마스킹 처리
-        String[] numberArray = phoneNumber.split("-");
-        String middle = numberArray[1];
-        String last = numberArray[2];
+        String middle = phoneNumber.substring(3,5);
+        String last = phoneNumber.substring(6,10);
         String maskedMiddle = middle.substring(0, 2) + "**";
         String maskedLast =  last.substring(0, 2) + "**";
-        return numberArray[0] + "-" + maskedMiddle + "-" + maskedLast;
+        return phoneNumber.substring(0,2) + "-" + maskedMiddle + "-" + maskedLast;
     }
 
     public static String maskEmail(String email) {
