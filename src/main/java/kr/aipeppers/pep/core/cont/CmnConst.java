@@ -51,6 +51,7 @@ public class CmnConst {
 	public static final String SES_USER_ID = "SES_USER_ID";
 	public static final String SES_USER_EMAIL = "SES_USER_EMAIL";
 	public static final String SES_DEVICE_TOKEN = "SES_DEVICE_TOKEN";
+	public static final String SES_AUTH_TOKEN = "SES_AUTH_TOKEN";
 
 	/* Redis Biz Key */
 	public static final String REDIS_CMN = "CMN:"; //REDIS 공통 영역 데이터

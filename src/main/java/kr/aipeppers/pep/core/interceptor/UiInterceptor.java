@@ -30,6 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.aipeppers.pep.core.annotation.ReqInfo;
 import kr.aipeppers.pep.core.cont.CmnConst;
 import kr.aipeppers.pep.core.data.Box;
+import kr.aipeppers.pep.core.exception.BizException;
 import kr.aipeppers.pep.core.spring.RequestWrapper;
 import kr.aipeppers.pep.core.util.ApiUtil;
 import kr.aipeppers.pep.core.util.HttpUtil;
@@ -63,6 +64,10 @@ public class UiInterceptor implements HandlerInterceptor {
 		 *********************************************/
 		Box userBox = SessionUtil.getUserData();
 //		log.debug("userBox: {}", userBox);
+
+		if (userBox == null ) {
+			throw new BizException("E101"); //로그인 정보가 존재하지 않습니다.
+		}
 
 		//WAS LOG 기능 강화 (접근 IP, 시스템, 사번을 로그에 출력)
 		Box threadBox = new Box();
