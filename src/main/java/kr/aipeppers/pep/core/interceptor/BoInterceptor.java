@@ -30,6 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.aipeppers.pep.core.annotation.ReqInfo;
 import kr.aipeppers.pep.core.cont.CmnConst;
 import kr.aipeppers.pep.core.data.Box;
+import kr.aipeppers.pep.core.exception.BizException;
 import kr.aipeppers.pep.core.spring.RequestWrapper;
 import kr.aipeppers.pep.core.util.ApiUtil;
 import kr.aipeppers.pep.core.util.HttpUtil;
@@ -72,7 +73,9 @@ public class BoInterceptor implements HandlerInterceptor {
 		threadBox.put("clientMethod", StringUtil.nvl(request.getMethod()));
 		threadBox.put("clientRefererUri", HttpUtil.getRefererUri(request));
 		if (userBox != null && !userBox.isEmpty()) {
-			threadBox.put("userId", userBox.nvl("mnmCstMngtNo")); //TODO : userId로 변경
+			threadBox.put("userId", userBox.nvl("userId")); //TODO : userId로 변경
+		} else {
+			throw new BizException("E101"); // 로그인 정보가 존재하지 않습니다.
 		}
 		request.setAttribute(CmnConst.PARAM_PROP_THREAD_BOX, threadBox);
 		ApiUtil.setThreadNm(threadBox);
