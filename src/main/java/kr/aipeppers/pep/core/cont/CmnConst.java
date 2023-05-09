@@ -172,6 +172,7 @@ public class CmnConst {
 		//  E124    찾을 수 없는 사용자 입니다.\n메인 페이지로 이동합니다.
 		//  E125    {0} 삭제되었습니다.
 		//  E126    현재 비밀번호 와 이전 비밀번호가 동일 합니다.
+		//  E127    로그인 시도 가능 횟수를 모두 소진하였습니다.\n패스워드를 변경해 주세요.
 	}
 
 	public static final String AES_ENCRYPT_KEY = "MDEyMzQ1Njc4OUFCQ0RFRg==";  //암호화 키(encrypt key)
