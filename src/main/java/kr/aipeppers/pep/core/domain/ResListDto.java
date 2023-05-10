@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ResListDto<T> {
 	@Schema(description = "결과코드")
-	private int code = 200;
+	private String code = "200";
 	@Schema(description = "결과메시지")
 	private String msg = "success";
 //	@Schema(description = "결과메시지")
