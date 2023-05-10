@@ -27,6 +27,7 @@ import org.springframework.web.util.ContentCachingResponseWrapper;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import io.swagger.annotations.ApiOperation;
 import kr.aipeppers.pep.core.annotation.ReqInfo;
 import kr.aipeppers.pep.core.cont.CmnConst;
 import kr.aipeppers.pep.core.data.Box;
@@ -62,11 +63,33 @@ public class UiInterceptor implements HandlerInterceptor {
 		/*********************************************
 		 * [START] 요청 타입이 JSON과 상관없는 공통 로직 처리
 		 *********************************************/
+////		log.debug("userBox: {}", userBox);
+//
+//		if (userBox == null ) {
+//			throw new BizException("E101"); //로그인 정보가 존재하지 않습니다.
+//		}
 		Box userBox = SessionUtil.getUserData();
-//		log.debug("userBox: {}", userBox);
+		HandlerMethod handlerMethod = (HandlerMethod)handler;
+		ApiOperation apiOperation = handlerMethod.getMethodAnnotation(ApiOperation.class);
+		if (apiOperation != null) {
+			if (!SpringUtil.getRequestUri().equals("/") &&
+				!SpringUtil.getRequestUri().startsWith("/anony") &&
+				!SpringUtil.getRequestUri().startsWith("/cmn") &&
+				!SpringUtil.getRequestUri().startsWith("/restapi/main/info")&&
+				!SpringUtil.getRequestUri().startsWith("/restapi/category/aipeppers")&&
+				!SpringUtil.getRequestUri().startsWith("/restapi/showpepper/info")&&
+				!SpringUtil.getRequestUri().startsWith("/restapi/category/info")
 
-		if (userBox == null ) {
-			throw new BizException("E101"); //로그인 정보가 존재하지 않습니다.
+				// 아래부터 임시로 추가한 부분 주석 풀고 사용 로그인 부분 작업 완료 후 삭제
+//				&& !SpringUtil.getRequestUri().startsWith("/category")
+//				&& !SpringUtil.getRequestUri().startsWith("/mypage")
+//				&& !SpringUtil.getRequestUri().startsWith("/customer")
+				//여기까지
+				) {
+				if (userBox == null ) {
+				throw new BizException("E101"); //로그인 정보가 존재하지 않습니다.
+			}
+			}
 		}
 
 		//WAS LOG 기능 강화 (접근 IP, 시스템, 사번을 로그에 출력)
@@ -91,7 +114,7 @@ public class UiInterceptor implements HandlerInterceptor {
 		//content-type이 json인지 체크
 		HttpInputMessage requestMessage = new ServletServerHttpRequest(request);
 		if (HttpUtil.isApplicationJson(requestMessage) && handler instanceof HandlerMethod) {
-			HandlerMethod handlerMethod = (HandlerMethod)handler;
+			handlerMethod = (HandlerMethod)handler;
 
 			// @RequestBody 어노테이션이 붙은 파라미터를 찾음.
 			MethodParameter reqDtoParam = Arrays.stream(handlerMethod.getMethodParameters())
