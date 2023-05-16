@@ -15,10 +15,10 @@ import lombok.NoArgsConstructor;
 public class ResListDto<T> {
 	@Schema(description = "결과코드")
 	private String code = "200";
-	@Schema(description = "결과메시지")
-	private String msg = "success";
 //	@Schema(description = "결과메시지")
-//	private ResCmnMsgDto msg = new ResCmnMsgDto();
+//	private String msg = "success";
+	@Schema(description = "결과메시지")
+	private ResCmnMsgDto msg = new ResCmnMsgDto();
 	@Schema(description = "결과갯수")
 	private int count;
 	@Schema(description = "결과리스트")
@@ -28,14 +28,14 @@ public class ResListDto<T> {
 
 	public ResListDto(List<T> list) {
 //		this.code = 200;
-//		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(message.getMsgId()), ResCmnMsgDto.class);
+		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(msg.getMsgId()), ResCmnMsgDto.class);
 		this.data = list;
 		this.count = list.size();
 	}
 
 	public ResListDto(List<T> list, ResPageDto paginateDto) {
 //		this.code = 200;
-//		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(message.getMsgId()), ResCmnMsgDto.class);
+		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(msg.getMsgId()), ResCmnMsgDto.class);
 		this.data = list;
 		this.paginate = paginateDto;
 		this.count = paginateDto.getTotalRecords();

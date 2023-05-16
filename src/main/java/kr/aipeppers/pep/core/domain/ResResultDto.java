@@ -2,6 +2,8 @@ package kr.aipeppers.pep.core.domain;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.v3.oas.annotations.media.Schema;
+import kr.aipeppers.pep.core.util.BeanUtil;
+import kr.aipeppers.pep.core.util.MsgUtil;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,10 +13,10 @@ import lombok.NoArgsConstructor;
 public class ResResultDto<T> {
 	@Schema(description = "결과코드")
 	private String code = "200";
-	@Schema(description = "결과메시지")
-	private String msg = "success";
 //	@Schema(description = "결과메시지")
-//	private ResCmnMsgDto msg = new ResCmnMsgDto();
+//	private String msg = "success";
+	@Schema(description = "결과메시지")
+	private ResCmnMsgDto msg = new ResCmnMsgDto();
 	@Schema(description = "결과데이터")
 	private T data;
 	@Schema(description = "결과페이징정보")
@@ -24,7 +26,7 @@ public class ResResultDto<T> {
 
 	public ResResultDto(T dto) {
 //		this.code = 200;
-//		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(msg.getMsgC()), ResCmnMsgDto.class);
+		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(msg.getMsgId()), ResCmnMsgDto.class);
 		this.data = dto;
 	}
 

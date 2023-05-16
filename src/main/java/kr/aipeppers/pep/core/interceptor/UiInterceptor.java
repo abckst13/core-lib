@@ -75,10 +75,20 @@ public class UiInterceptor implements HandlerInterceptor {
 			if (!SpringUtil.getRequestUri().equals("/") &&
 				!SpringUtil.getRequestUri().startsWith("/anony") &&
 				!SpringUtil.getRequestUri().startsWith("/cmn") &&
-				!SpringUtil.getRequestUri().startsWith("/restapi/main/info")&&
+				!SpringUtil.getRequestUri().startsWith("/restapi/main/info/aipepperMainSNSList")&&
+				!SpringUtil.getRequestUri().startsWith("/restapi/main/info/aipepperMainInfoList")&&
+				!SpringUtil.getRequestUri().startsWith("/restapi/main/info/aipepperEventInfoList")&&
+				!SpringUtil.getRequestUri().startsWith("/restapi/srch/info/search")&& // 검색
+				!SpringUtil.getRequestUri().startsWith("/restapi/srch/info/showDiscoverySections")&& // 검색 란 배너 조회
 				!SpringUtil.getRequestUri().startsWith("/restapi/category/aipeppers")&&
-				!SpringUtil.getRequestUri().startsWith("/restapi/showpepper/info")&&
-				!SpringUtil.getRequestUri().startsWith("/restapi/category/info")
+				!SpringUtil.getRequestUri().startsWith("/restapi/showpepper/info/showRelatedVideos")&&
+//				!SpringUtil.getRequestUri().startsWith("/restapi/showpepper/info/showRelatedVideos")&&
+				!SpringUtil.getRequestUri().startsWith("/restapi/showpepper/info/watchVideo")&& // SHOWPEPPER 영상 진입
+				!SpringUtil.getRequestUri().startsWith("/restapi/category/event/luckydrawDetail")&& // 럭키드로우 상세 정보
+				!SpringUtil.getRequestUri().startsWith("/restapi/category/event/luckydrawList")&& // 럭키 드로우 LIST 정보
+				!SpringUtil.getRequestUri().startsWith("/restapi/category/aipeppers/playerList")&& // 선수 전체 LIST 정보
+				!SpringUtil.getRequestUri().startsWith("/restapi/category/aipeppers/playerDtail")&&//선수 상세 정보
+				!SpringUtil.getRequestUri().startsWith("/restapi/category/info") // 메뉴쪽
 
 				// 아래부터 임시로 추가한 부분 주석 풀고 사용 로그인 부분 작업 완료 후 삭제
 //				&& !SpringUtil.getRequestUri().startsWith("/category")
