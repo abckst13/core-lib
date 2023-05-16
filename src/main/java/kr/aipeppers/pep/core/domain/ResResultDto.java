@@ -12,10 +12,10 @@ import lombok.NoArgsConstructor;
 @ApiModel(value = "REST API 응답 Dto", description = "REST API 응답 Dto")
 @NoArgsConstructor
 public class ResResultDto<T> {
+//	@Schema(description = "결과코드")
+//	private String msgCd;
 	@Schema(description = "성공여부")
 	private String code = "200";
-	@Schema(description = "결과코드")
-	private String msgCd;
 	@Schema(description = "결과메시지")
 	private String msg = "성공";
 	@Schema(description = "결과데이터")
@@ -30,14 +30,14 @@ public class ResResultDto<T> {
 	}
 	public ResResultDto(T dto, String msgCd) {
 		if (msgCd.startsWith("I")) {
-			this.msgCd = msgCd;
+			this.code = msgCd;
 			this.msg =  MsgUtil.getMsg(msgCd);
 		}
 		this.data = dto;
 	}
 	public ResResultDto(T dto, String msgCd, Object[] messageParams) {
 		if (msgCd.startsWith("I")) {
-			this.msgCd = msgCd;
+			this.code = msgCd;
 			this.msg =  MsgUtil.getMsg(msgCd, messageParams);
 		}
 		this.data = dto;
@@ -50,7 +50,7 @@ public class ResResultDto<T> {
 	}
 	public ResResultDto(T dto, ResPageDto paginateDto, String msgCd) {
 		if (msgCd.startsWith("I")) {
-			this.msgCd = msgCd;
+			this.code = msgCd;
 			this.msg =  MsgUtil.getMsg(msgCd);
 		}
 		this.data = dto;
@@ -59,7 +59,7 @@ public class ResResultDto<T> {
 	}
 	public ResResultDto(T dto, ResPageDto paginateDto, String msgCd, Object[] messageParams) {
 		if (msgCd.startsWith("I")) {
-			this.msgCd = msgCd;
+			this.code = msgCd;
 			this.msg =  MsgUtil.getMsg(msgCd, messageParams);
 		}
 		this.data = dto;
