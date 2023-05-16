@@ -14,30 +14,48 @@ import lombok.NoArgsConstructor;
 public class ResResultDto<T> {
 	@Schema(description = "결과코드")
 	private String code = "200";
-//	@Schema(description = "결과메시지")
-//	private String msg = "success";
 	@Schema(description = "결과메시지")
-	private String msg;
+	private String msg = "성공";
 	@Schema(description = "결과데이터")
 	private T data;
 	@Schema(description = "결과페이징정보")
 	private ResPageDto paginate;
 	@Schema(description = "결과갯수")
 	private int count;
-	@Schema(description = "메세지 Dto")
-	private ResCmnMsgDto cmmMsg =  new ResCmnMsgDto();
+
 	public ResResultDto(T dto) {
-		ResCmnMsgDto msgText = BeanUtil.convert(MsgUtil.getMsgBox(cmmMsg.getMsgId()), ResCmnMsgDto.class);
-//		this.code = 200;
-		this.msg = msgText.getMsgNm();
+		this.data = dto;
+	}
+	public ResResultDto(T dto, String code) {
+		if (code.startsWith("I")) {
+			this.msg =  MsgUtil.getMsg(code);
+		}
+		this.data = dto;
+	}
+	public ResResultDto(T dto, String code, Object[] messageParams) {
+		if (code.startsWith("I")) {
+			this.msg =  MsgUtil.getMsg(code, messageParams);
+		}
 		this.data = dto;
 	}
 
 	public ResResultDto(T dto, ResPageDto paginateDto) {
-//		this.code = 200;
-//		this.msg = BeanUtil.convert(MsgUtil.getMsgBox(msg.getMsgC()), ResCmnMsgDto.class);
-		ResCmnMsgDto msgText = BeanUtil.convert(MsgUtil.getMsgBox(cmmMsg.getMsgId()), ResCmnMsgDto.class);
-		this.msg = msgText.getMsgNm();
+		this.data = dto;
+		this.paginate = paginateDto;
+		this.count = paginateDto.getTotalRecords();
+	}
+	public ResResultDto(T dto, ResPageDto paginateDto, String code) {
+		if (code.startsWith("I")) {
+			this.msg =  MsgUtil.getMsg(code);
+		}
+		this.data = dto;
+		this.paginate = paginateDto;
+		this.count = paginateDto.getTotalRecords();
+	}
+	public ResResultDto(T dto, ResPageDto paginateDto, String code, Object[] messageParams) {
+		if (code.startsWith("I")) {
+			this.msg =  MsgUtil.getMsg(code, messageParams);
+		}
 		this.data = dto;
 		this.paginate = paginateDto;
 		this.count = paginateDto.getTotalRecords();
