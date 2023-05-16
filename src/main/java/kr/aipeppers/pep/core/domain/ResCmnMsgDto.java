@@ -15,10 +15,10 @@ public class ResCmnMsgDto {
 	private String msgId = CmnConst.ResCd.RES_CD_SUCCESS;
 	@Schema(description = "메시지내용")
 	private String msgNm = MsgUtil.getMsg(msgId);
-	@Schema(description = "메시지상세")
-	private String msgDesc;
-	@Schema(description = "메시지유형")
-	private String msgType; //S:성공, I:정보, W:경고, E:업무오류, F:시스템에러
+//	@Schema(description = "메시지상세")
+//	private String msgDesc;
+//	@Schema(description = "메시지유형")
+//	private String msgType; //S:성공, I:정보, W:경고, E:업무오류, F:시스템에러
 
 	public ResCmnMsgDto(String msgId, String msgNm) {
 		this.msgId = msgId;
