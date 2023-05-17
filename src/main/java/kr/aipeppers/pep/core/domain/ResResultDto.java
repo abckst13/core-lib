@@ -29,8 +29,6 @@ public class ResResultDto<T> {
 		this.data = dto;
 	}
 	public ResResultDto(T dto, String msgCd) {
-		System.out.println("ResResultDto >>>> ");
-
 		if (msgCd.startsWith("I")) {
 			this.msg =  MsgUtil.getMsg(msgCd);
 		}
