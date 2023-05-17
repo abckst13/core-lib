@@ -174,6 +174,9 @@ public class CmnConst {
 		//  E126    현재 비밀번호 와 이전 비밀번호가 동일 합니다.
 		//  E127    로그인 시도 가능 횟수를 모두 소진하였습니다.\n패스워드를 변경해 주세요.
 
+		//  I201	휴대폰 번호가 인증되었습니다.
+		//  I202	비밀번호가 변경이 완료되었습니다.
+		//  I203	사용 가능한 닉네임입니다.
 		//  I204	AI PEPPERS 가입이 완료 되었습니다. 로그인 후 서비스를 이용해주세요. v
 		//  I205	사용 가능한 아이디입니다. v
 		//  I206	비디오가 삭제되었습니다.
@@ -198,6 +201,10 @@ public class CmnConst {
 		//  I225	참여해 주셔서 감사합니다.
 		//  I226	성공적으로 Post를 수정했습니다.
 		//  I227	로그인이 성공하였습니다. v
+		//	I228	favourite
+		//	I229	unfavourite
+		//	I230	like
+		//	I231	unlike
 	}
 
 	public static final String AES_ENCRYPT_KEY = "MDEyMzQ1Njc4OUFCQ0RFRg==";  //암호화 키(encrypt key)
