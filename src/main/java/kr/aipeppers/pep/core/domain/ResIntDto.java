@@ -24,14 +24,12 @@ public class ResIntDto {
 
 	public ResIntDto(int resultCnt, String msgCd) {
 		if (msgCd.startsWith("I")) {
-			this.code = msgCd;
 			this.msg =  MsgUtil.getMsg(msgCd);
 		}
 	}
 
 	public ResIntDto(int resultCnt, String msgCd, Object[] messageParams) {
 		if (msgCd.startsWith("I")) {
-			this.code = msgCd;
 			this.msg =  MsgUtil.getMsg(msgCd, messageParams);
 		}
 	}

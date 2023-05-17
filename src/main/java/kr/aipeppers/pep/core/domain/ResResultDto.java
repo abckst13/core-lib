@@ -2,8 +2,6 @@ package kr.aipeppers.pep.core.domain;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-import kr.aipeppers.pep.core.data.Box;
-import kr.aipeppers.pep.core.util.BeanUtil;
 import kr.aipeppers.pep.core.util.MsgUtil;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -33,7 +33,6 @@ public class ResListDto<T> {
 
 	public ResListDto(List<T> list, String msgCd) {
 		if (msgCd.startsWith("I")) {
-			this.code = msgCd;
 			this.msg =  MsgUtil.getMsg(msgCd);
 		}
 		this.data = list;
@@ -42,7 +41,6 @@ public class ResListDto<T> {
 
 	public ResListDto(List<T> list, String msgCd, Object[] messageParams) {
 		if (msgCd.startsWith("I")) {
-			this.code = msgCd;
 			this.msg =  MsgUtil.getMsg(msgCd, messageParams);
 		}
 		this.data = list;
@@ -57,7 +55,6 @@ public class ResListDto<T> {
 
 	public ResListDto(List<T> list, ResPageDto paginateDto, String msgCd) {
 		if (msgCd.startsWith("I")) {
-			this.code = msgCd;
 			this.msg =  MsgUtil.getMsg(msgCd);
 		}
 		this.data = list;
@@ -67,7 +64,6 @@ public class ResListDto<T> {
 
 	public ResListDto(List<T> list, ResPageDto paginateDto, String msgCd, Object[] messageParams) {
 		if (msgCd.startsWith("I")) {
-			this.code = msgCd;
 			this.msg =  MsgUtil.getMsg(msgCd);
 		}
 		this.data = list;
