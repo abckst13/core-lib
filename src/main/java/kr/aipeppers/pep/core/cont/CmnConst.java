@@ -208,6 +208,7 @@ public class CmnConst {
 	}
 
 	public static final String AES_ENCRYPT_KEY = "MDEyMzQ1Njc4OUFCQ0RFRg==";  //암호화 키(encrypt key)
+	public static final String PASSWORD_KEY = "DYhG93b0qyJfIxfs2guVsoUubWwvniR2G0FgaC9mi";  //암호화 키(encrypt key)
 
 	public static final String PROFILE_KEY = "spring.config.activate.on-profile";
 	public static final String PROFILE_DEFAULT = "local";
