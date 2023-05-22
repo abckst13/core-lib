@@ -14,7 +14,7 @@ public class FilterUtil {
 		String[] ArraysStr = filter.split(",");
 		for (String text : ArraysStr) {
 			if (text.trim().contains(filterText.replaceAll(" ", ""))) {
-				throw new BizException("E109");
+				throw new BizException("E129"); // 부적절한 단어의 포함으로 사용이 불가능합니다. (금칙어 사용)
 			}
 		}
 		return true;
