@@ -34,6 +34,11 @@ public class MaskUtil {
         return maskedEmail;
     }
 
+    /**
+     * @Method Name : passwordChk
+     * @param password
+     * @return
+     */
     public static boolean passwordChk(String password) {
     	String strPattern = "^[a-zA-Z0-9~!@#$%^&*|\\\\\\\\'\\\\\\\";:/?^=+_()<>-]{8,16}$";
         Pattern pattern = Pattern.compile(strPattern);
