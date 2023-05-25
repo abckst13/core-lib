@@ -47,6 +47,7 @@ public class CmnConst {
 	public static final String PUSH_TYPE_POST_LIKE = "post_like";
 	public static final String PUSH_TYPE_FOLLOW = "follow";
 	public static final String PUSH_TYPE_VIDEO_UPDATE = "video_updates";
+	public static final String PUSH_TYPE_POST_CMT = "post_comment";
 
 	/* Session Key */
 	public static final String SES_USER_DATA = "SES_USER_DATA";
