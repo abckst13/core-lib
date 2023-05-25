@@ -37,6 +37,8 @@ public class CmnConst {
 	public static final String PUSH_VIDEO_LIKE = "님이 회원님의 영상을 좋아합니다.";
 	public static final String PUSH_NEW_CONTENT = "님이 새로운 게시물을 업데이트 했습니다.";
 	public static final String PUSH_NEW_VIDEO = "님이 비디오를 업로드 하였습니다.";
+	public static final String PUSH_POST_CMT = "님이 회원님의 포스트에 댓글을 달았습니다.";
+	public static final String PUSH_POST_CMT_REPLY = "님이 회원님의 포스트에 대댓글을 달았습니다.";
 
 	/*push type*/
 	public static final String PUSH_TYPE_VIDEO_LIKE = "video_like";
