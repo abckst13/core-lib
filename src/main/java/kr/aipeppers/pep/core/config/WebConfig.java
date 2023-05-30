@@ -54,7 +54,7 @@ public class WebConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/upload/").addResourceLocations("file:///var/www/html/mobileapp_api/app/webroot/uploads/images");
+		registry.addResourceHandler("/upload/profil").addResourceLocations("file:///var/www/html/mobileapp_api/app/webroot/uploads/images");
 		registry.addResourceHandler("/upload/post").addResourceLocations("file:///var/www/html/mobileapp_api/app/webroot/uploads/images/post");
 	}
 
