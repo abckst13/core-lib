@@ -224,6 +224,7 @@ public class CmnConst {
 		//	I229	unfavourite
 		//	I230	like
 		//	I231	unlike
+		//	I232	투표 참여하기
 	}
 
 	public static final String AES_ENCRYPT_KEY = "MDEyMzQ1Njc4OUFCQ0RFRg==";  //암호화 키(encrypt key)
