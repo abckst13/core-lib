@@ -54,7 +54,7 @@ public class WebConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/file/**").addResourceLocations("file:///var/www/html/mobileapp_api/");
+		registry.addResourceHandler("/file/**").addResourceLocations("file:///var/www/html/api/");
 	}
 
 	@Bean("cmnInterceptor")
