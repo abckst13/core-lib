@@ -88,7 +88,8 @@ public class UiInterceptor implements HandlerInterceptor {
 				!SpringUtil.getRequestUri().startsWith("/restapi/category/event/luckydrawList")&& // 럭키 드로우 LIST 정보
 				!SpringUtil.getRequestUri().startsWith("/restapi/category/aipeppers/playerList")&& // 선수 전체 LIST 정보
 				!SpringUtil.getRequestUri().startsWith("/restapi/category/aipeppers/playerDtail")&&//선수 상세 정보
-				!SpringUtil.getRequestUri().startsWith("/restapi/category/info") // 메뉴쪽
+				!SpringUtil.getRequestUri().startsWith("/restapi/category/info") &&   // 메뉴쪽
+				!SpringUtil.getRequestUri().startsWith("/restapi/category/event/defaultAttendanceCheck") // 이벤트 디폴트 조회
 
 				// 아래부터 임시로 추가한 부분 주석 풀고 사용 로그인 부분 작업 완료 후 삭제
 //				&& !SpringUtil.getRequestUri().startsWith("/category")
