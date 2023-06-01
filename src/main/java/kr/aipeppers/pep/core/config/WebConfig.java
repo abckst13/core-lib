@@ -54,8 +54,7 @@ public class WebConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/upload/**")
-			.addResourceLocations("file:///upload/files/test/");
+		registry.addResourceHandler("/file/**").addResourceLocations("file:///var/www/html/api/");
 	}
 
 	@Bean("cmnInterceptor")
@@ -83,3 +82,4 @@ public class WebConfig implements WebMvcConfigurer {
 //		return requestMappingHandlerMapping;
 //	}
 }
+
