@@ -45,38 +45,38 @@ public class CdLocator implements ApplicationListener<ContextRefreshedEvent> {
 
 	public void initialize() {
 
-		List<Box> cdList = dao.selectList("cmn.cdTreeList");
-		Box cdBox = null;
-		ConcurrentMap<String, Box> cdDetailMap = null;
-		CopyOnWriteArrayList<Box> cdDetailList = null;
-		for(int i=0, s=cdList.size(); i<s; i++) {
-			cdBox = cdList.get(i);
-			cdDetailMap = cdMap.get(cdBox.nvl("grpCd"));
-			if(cdDetailMap == null) {
-				cdDetailMap = new ConcurrentHashMap<String, Box>();
-				cdMap.put(cdBox.nvl("grpCd"), cdDetailMap);
-			}
-			cdDetailMap.put(cdBox.nvl("cd"), cdBox);
-			if(CD_GROUP_KEY.equals(cdBox.nvl("grpCd"))) {
-				if("Y".equals(cdBox.nvl("useYn"))) {
-					cdListMap.put(cdBox.nvl("cd"), new CopyOnWriteArrayList<Box>());
-				}
-				continue;
-			}
-			cdDetailList = cdListMap.get(cdBox.nvl("grpCd"));
-			if(cdDetailList != null) {
-				if("Y".equals(cdBox.nvl("useYn"))) {
-					cdDetailList.add(cdBox);
-				}
-			}
-		}
-		if (null != cdList && !cdList.isEmpty()) {
-			try {
-				this.fileCreate(cdList);
-			} catch (Exception e) {
-				log.error(e.getMessage(), e);
-			}
-		}
+//		List<Box> cdList = dao.selectList("cmn.cdTreeList");
+//		Box cdBox = null;
+//		ConcurrentMap<String, Box> cdDetailMap = null;
+//		CopyOnWriteArrayList<Box> cdDetailList = null;
+//		for(int i=0, s=cdList.size(); i<s; i++) {
+//			cdBox = cdList.get(i);
+//			cdDetailMap = cdMap.get(cdBox.nvl("grpCd"));
+//			if(cdDetailMap == null) {
+//				cdDetailMap = new ConcurrentHashMap<String, Box>();
+//				cdMap.put(cdBox.nvl("grpCd"), cdDetailMap);
+//			}
+//			cdDetailMap.put(cdBox.nvl("cd"), cdBox);
+//			if(CD_GROUP_KEY.equals(cdBox.nvl("grpCd"))) {
+//				if("Y".equals(cdBox.nvl("useYn"))) {
+//					cdListMap.put(cdBox.nvl("cd"), new CopyOnWriteArrayList<Box>());
+//				}
+//				continue;
+//			}
+//			cdDetailList = cdListMap.get(cdBox.nvl("grpCd"));
+//			if(cdDetailList != null) {
+//				if("Y".equals(cdBox.nvl("useYn"))) {
+//					cdDetailList.add(cdBox);
+//				}
+//			}
+//		}
+//		if (null != cdList && !cdList.isEmpty()) {
+//			try {
+//				this.fileCreate(cdList);
+//			} catch (Exception e) {
+//				log.error(e.getMessage(), e);
+//			}
+//		}
 	}
 
 	public String getData() {

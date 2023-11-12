@@ -43,18 +43,18 @@ public class EncKeyLocator implements ApplicationListener<ContextRefreshedEvent>
 		//디비에 저장된 api 셋팅값 가져옴
 		String[] title = {"CRYPT_PASS" , "CRYPT_IV" , "G_BSZUSER_KEY" , "G_BSZIV"};
 		encKeyBox.put("title", title);
-		List<Box> encKeyList = dao.selectList("cmn.apiSettingList", encKeyBox);
-		Box innerBox = null;
-		ConcurrentMap<String, Box> encKeyDetailMap = null;
-		for(int i=0, s=encKeyList.size(); i<s; i++) {
-			innerBox = encKeyList.get(i);
-			encKeyDetailMap = encMap.get(innerBox.nvl("title"));
-			if(encKeyDetailMap == null) {
-				encKeyDetailMap = new ConcurrentHashMap<String, Box>();
-				encMap.put(innerBox.nvl("title"), encKeyDetailMap);
-			}
-			encKeyDetailMap.put(innerBox.nvl("title"), innerBox);
-		}
+//		List<Box> encKeyList = dao.selectList("cmn.apiSettingList", encKeyBox);
+//		Box innerBox = null;
+//		ConcurrentMap<String, Box> encKeyDetailMap = null;
+//		for(int i=0, s=encKeyList.size(); i<s; i++) {
+//			innerBox = encKeyList.get(i);
+//			encKeyDetailMap = encMap.get(innerBox.nvl("title"));
+//			if(encKeyDetailMap == null) {
+//				encKeyDetailMap = new ConcurrentHashMap<String, Box>();
+//				encMap.put(innerBox.nvl("title"), encKeyDetailMap);
+//			}
+//			encKeyDetailMap.put(innerBox.nvl("title"), innerBox);
+//		}
 
 	}
 

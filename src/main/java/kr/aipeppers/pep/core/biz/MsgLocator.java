@@ -37,26 +37,26 @@ public class MsgLocator implements ApplicationListener<ContextRefreshedEvent> {
 
 	public void initialize() {
 
-		List<Box> msgList = dao.selectList("cmn.msgAllList");
-		ConcurrentMap<String, Box> msgInfoMap = null;
-		Box inBox = null;
-		for(int i=0, s=msgList.size(); i<s; i++) {
-			inBox = msgList.get(i);
-			msgInfoMap = msgMap.get(inBox.nvl("msgId"));
-			if(msgInfoMap == null) {
-				msgInfoMap = new ConcurrentHashMap<String, Box>();
-				msgMap.put(inBox.nvl("msgId"), msgInfoMap);
-			}
-			msgInfoMap.put(inBox.nvl("msgId"), inBox);
-		}
-
-		if (null != msgList && !msgList.isEmpty()) {
-			try {
-				this.fileCreate(msgList);
-			} catch (Exception e) {
-				log.error(e.getMessage(), e);
-			}
-		}
+//		List<Box> msgList = dao.selectList("cmn.msgAllList");
+//		ConcurrentMap<String, Box> msgInfoMap = null;
+//		Box inBox = null;
+//		for(int i=0, s=msgList.size(); i<s; i++) {
+//			inBox = msgList.get(i);
+//			msgInfoMap = msgMap.get(inBox.nvl("msgId"));
+//			if(msgInfoMap == null) {
+//				msgInfoMap = new ConcurrentHashMap<String, Box>();
+//				msgMap.put(inBox.nvl("msgId"), msgInfoMap);
+//			}
+//			msgInfoMap.put(inBox.nvl("msgId"), inBox);
+//		}
+//
+//		if (null != msgList && !msgList.isEmpty()) {
+//			try {
+//				this.fileCreate(msgList);
+//			} catch (Exception e) {
+//				log.error(e.getMessage(), e);
+//			}
+//		}
 	}
 
 	public String getData() {

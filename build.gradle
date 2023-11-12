@@ -93,7 +93,7 @@ dependencies {
 
 	compileOnly 'org.projectlombok:lombok:1.18.24'
 	annotationProcessor 'org.projectlombok:lombok:1.18.24'
-	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client:2.7.3'
+	//runtimeOnly 'org.mariadb.jdbc:mariadb-java-client:2.7.3'
 	//runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc:11.2.1.jre11'
 
 	//runtimeOnly 'org.postgresql:postgresql'
